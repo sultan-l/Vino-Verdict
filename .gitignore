@@ -2,4 +2,5 @@ raw_data/
 *.bin
 .ipynb_checkpoints/
 .DS_Store
-model/*
+model/*.bin
+model/*.json
