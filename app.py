@@ -1,17 +1,26 @@
 #first pip install streamlit
-from google.cloud import storage
+#from google.cloud import storage
 
-# Initialise a client
-storage_client = storage.Client("graphic-armor-392809")
-# Create a bucket object for our bucket
-bucket = storage_client.bucket('vino-verdict')
-# Create a blob object from the filepath
-blob = bucket.blob("models/pytorch_model.bin")
-# Download the file to a destination
-blob.download_to_filename("model/pytorch_model.bin")
+# # Initialise a client
+# storage_client = storage.Client("graphic-armor-392809")
+# # Create a bucket object for our bucket
+# bucket = storage_client.bucket('vino-verdict')
+# # Create a blob object from the filepath
+# blob = bucket.blob("models/pytorch_model.bin")
+# # Download the file to a destination
+# blob.download_to_filename("model/pytorch_model.bin")
 
-blob2 = bucket.blob("models/config.json")
-blob2.download_to_filename("model/config.json")
+# blob2 = bucket.blob("models/config.json")
+# blob2.download_to_filename("model/config.json")
+import requests
+
+url='https://storage.googleapis.com/vino-verdict/models/pytorch_model.bin'
+response = requests.get(url)
+open("model/pytorch_model.bin", "wb").write(response.content)
+
+url='https://storage.googleapis.com/vino-verdict/models/config.json'
+response = requests.get(url)
+open("model/config.json", "wb").write(response.content)
 
 
 import streamlit as st
