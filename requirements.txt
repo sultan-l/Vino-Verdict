@@ -2,3 +2,4 @@ streamlit
 transformers==4.31.0
 torch==2.0.1
 Pillow==9.5.0
+google-cloud-storage==2.10.0
